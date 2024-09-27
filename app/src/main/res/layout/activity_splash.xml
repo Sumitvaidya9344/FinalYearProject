@@ -25,6 +25,6 @@
         android:text="Women Safty App"
         android:textAlignment="center"
         android:textColor="#E8190A"
-        android:textSize="25dp"
+        android:textSize="30dp"
         android:textStyle="bold" />
 </RelativeLayout>
