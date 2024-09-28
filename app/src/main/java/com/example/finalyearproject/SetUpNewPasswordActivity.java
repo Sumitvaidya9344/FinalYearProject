@@ -42,6 +42,7 @@ public class SetUpNewPasswordActivity extends AppCompatActivity {
         Toast.makeText(this, strMobileno, Toast.LENGTH_SHORT).show();
 
         btnSetUpNewPassword.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 if (etNewPassword.getText().toString().isEmpty() || etConfirmPassword.getText().toString().isEmpty()) {
@@ -56,6 +57,7 @@ public class SetUpNewPasswordActivity extends AppCompatActivity {
                     progressDialog.show();
 
                     forgetpassword();
+                    progressDialog.dismiss();
                 }
             }
         });
@@ -98,5 +100,13 @@ public class SetUpNewPasswordActivity extends AppCompatActivity {
                     }
 
                 });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(SetUpNewPasswordActivity.this,HomeActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
     }
 }

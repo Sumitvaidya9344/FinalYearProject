@@ -7,8 +7,13 @@
         android:icon="@drawable/icon_home"/>
 
     <item
-        android:id="@+id/homeBottomNavigationMenuPersonalInfo"
-        android:title="Personal Info"
-        android:icon="@drawable/icon_personalinfo"/>
+        android:id="@+id/homeBottomNavigationMenuCategory"
+        android:title="Category"
+        android:icon="@drawable/icon_category"/>
+
+    <item
+        android:id="@+id/homeBottomNavigationMenuMyOrder"
+        android:title="My Order"
+        android:icon="@drawable/icon_myorder"/>
 
 </menu>

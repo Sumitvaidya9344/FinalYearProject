@@ -64,6 +64,12 @@ public class LoginActivity extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
         editor = preferences.edit();
 
+        if(preferences.getBoolean("isLogin",false))
+        {
+            Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
+            startActivity(intent);
+        }
+
         setTitle("Login Activity");
         etUsername = findViewById(R.id.etLoginUsername);
         etPassword = findViewById(R.id.etLoginPassword);
@@ -119,6 +125,14 @@ public class LoginActivity extends AppCompatActivity {
                     progressDialog.setTitle("Please Wait");
                     progressDialog.setMessage("Login Under Process");
                     progressDialog.show();
+                   // userLogin();
+
+                   // Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+
+                    editor.putString("username",etUsername.getText().toString()).commit();
+                    editor.putBoolean("isLogin",true).commit();
+                   // startActivity(intent);
+
                     userLogin();
                 }
             }

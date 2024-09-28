@@ -122,6 +122,9 @@ public class RegistrationActivity extends AppCompatActivity {
                                    intent.putExtra("username",etUserName.getText().toString());
                                    intent.putExtra("password",etPassword.getText().toString());
                                    startActivity(intent);
+
+                                   editor.putString("UserName",etUserName.getText().toString()).commit();
+                                   editor.putString("Password",etPassword.getText().toString()).commit();
                                }
                            }
                    );
