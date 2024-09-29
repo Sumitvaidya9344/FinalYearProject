@@ -8,8 +8,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
+import com.example.finalyearproject.Comman.Urls;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -26,6 +28,8 @@ import cz.msebera.android.httpclient.Header;
 
 public class CategoryFragment extends Fragment {
 
+
+    SearchView searchCategory;
     ListView lvShowAllCategory;
     TextView tvNoCategoryAvailable;
     
@@ -39,19 +43,57 @@ public class CategoryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_category, container, false);
         pojoGetAllCategoryDetails = new ArrayList<>();
 
+        searchCategory = view.findViewById(R.id.svcategoryfragmentsearchcategory);
         lvShowAllCategory = view.findViewById(R.id.lvCategoryFragmentShowMultipleCategory);
         tvNoCategoryAvailable = view.findViewById(R.id.tvCategoryFragmentNoCategoryAvailable);
 
+        //query = user type
+        searchCategory.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                searchCategory(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                searchCategory(query);
+                return false;
+            }
+        });
         getAllCategory();
 
         return view;
+    }
+
+    private void searchCategory(String query) {
+        List<POJOGetAllCategoryDetails> tempcategory = new ArrayList<>();
+        tempcategory.clear();
+
+        for(POJOGetAllCategoryDetails obj:pojoGetAllCategoryDetails)
+        {
+            if(obj.getCategoryName().toUpperCase().contains(query.toUpperCase()))
+            {
+                tempcategory.add(obj);
+
+            }
+            else
+            {
+                tvNoCategoryAvailable.setVisibility(View.VISIBLE);
+            }
+
+            adapterGetAllCategoryDetails = new AdapterGetAllCategoryDetails(tempcategory,
+                    getActivity());
+            lvShowAllCategory.setAdapter(adapterGetAllCategoryDetails);
+        }
+
     }
 
     private void getAllCategory() {
         AsyncHttpClient client = new AsyncHttpClient(); // Client - Server communication Over the network
         RequestParams params = new RequestParams(); // Put the data in asynchttpclient
 
-        client.post("http://192.168.34.114:80/hostelmanagementAPI/getAllCategoryDetails.php",
+        client.post(Urls.getAllCategoryDetailsWebService,
                 params,
                 new JsonHttpResponseHandler()
                 {

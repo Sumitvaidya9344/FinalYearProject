@@ -6,4 +6,6 @@ public class Urls {
     public static String registerUserWebService = webServiceAddress + "hostelregister.php";
     public static String forgetPasswordWebService = webServiceAddress + "userForgotPassword.php";
     public static String myDetailsWebService = webServiceAddress + "myDetails.php";
+    public static String getAllCategoryDetailsWebService = webServiceAddress + "getAllCategoryDetails.php";
+
 }
