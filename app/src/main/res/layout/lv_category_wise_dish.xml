@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cvcategorywisedish"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="16sp"
+        android:elevation="16sp"
+        android:layout_margin="12sp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/ivcategorywiseimage"
+                android:src="@drawable/categorywisedishsample"
+                android:scaleType="fitXY"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:id="@+id/tvcategorywiseDishRestaurantName"
+                    android:text="Sample Restaurant"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/abril_fatface"
+                    android:layout_marginTop="4sp"
+                    android:layout_margin="6sp"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:id="@+id/tvcategorywiseDishRestaurantrating"
+                    android:text="4.4"
+                    android:textColor="@color/white"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/abril_fatface"
+                    android:layout_marginTop="4sp"
+                    android:layout_margin="6sp"
+                    android:gravity="center"
+                    android:background="#4CAF50"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvcategorywiseDishName"
+                android:text="Dish Name"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="normal"
+                android:layout_margin="6sp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvcategorywiseDishCategory"
+                    android:text="Dish Category"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    android:layout_margin="6sp"
+                    android:maxLength="25"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvcategorywiseDishPrice"
+                    android:text="Dish Price"
+                    android:textColor="@color/black"
+                    android:textSize="14dp"
+                    android:textStyle="normal"
+                    android:layout_margin="6sp"
+                    android:maxLength="25"
+                    />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_grey"
+                android:layout_margin="8sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvcategorywiseDishOffer"
+                android:text="20% Off"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="normal"
+                android:layout_margin="6sp"
+                android:maxLength="25"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/light_grey"
+                android:layout_margin="8sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvcategorywiseDishDescription"
+                android:text="Dish Description"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="normal"
+                android:layout_margin="6sp"
+                android:maxLength="25"
+                />
+
+
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

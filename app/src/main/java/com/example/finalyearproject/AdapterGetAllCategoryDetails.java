@@ -1,12 +1,16 @@
 package com.example.finalyearproject;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
 
 import com.bumptech.glide.Glide;
 
@@ -42,6 +46,7 @@ public class AdapterGetAllCategoryDetails extends BaseAdapter{
         return position;
     }
 
+    @SuppressLint("WrongViewCast")
     @Override
     public View getView(int position, View  view, ViewGroup viewGroup) {
 
@@ -54,6 +59,7 @@ public class AdapterGetAllCategoryDetails extends BaseAdapter{
           view =  inflater.inflate(R.layout.lv_get_all_category,null);
           holder.ivCategoryImage = view.findViewById(R.id.ivcategoryimage);
           holder.tvCategoryName = view.findViewById(R.id.tvCategoryName);
+          holder.cvCategoryList = view.findViewById(R.id.cvCategoryList);
 
           view.setTag(holder);
         }
@@ -70,11 +76,21 @@ public class AdapterGetAllCategoryDetails extends BaseAdapter{
                 .skipMemoryCache(true)
                 .error(R.drawable.image_not_available)
                 .into(holder.ivCategoryImage);
+
+        holder.cvCategoryList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(activity,CategorywiseDishActivity.class);
+                i.putExtra("categoryname",obj.getCategoryName());
+                activity.startActivity(i);
+            }
+        });
         return view;
     }
 
     class ViewHolder
     {
+        CardView cvCategoryList;
         ImageView ivCategoryImage;
         TextView tvCategoryName;
     }
